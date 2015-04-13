@@ -8,25 +8,29 @@ exports.create = function() {
         layout: "vertical",
         backgroundColor: "#fff",
         borderWidth: 1,
-        borderColor: "#33c8a3"
+        borderColor: "#33c8a3",
     });
     
     for (var i=0;i<meta.length;i++) {
         var m = meta[i];
         var row = Ti.UI.createView({
             height: Ti.UI.SIZE,
+            width: Ti.UI.FILL,
             top: 20,
         });
         view.add(row);
         row.add(Ti.UI.createLabel({
             text: m,
-            left: 10,
-            width: "45%"
+            left: "5%",
+            width: "40%",
+            textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
         }));
         fields[m] = Ti.UI.createTextField({
             value: "",
-            left: "45%",
-            right: 10,
+            width: "45%",
+            right: "5%",
+            borderColor: "#33c8a3",
+            borderWidth: 1,
         });
         row.add(fields[m]);
     }

@@ -6,16 +6,16 @@ exports.create = function() {
         borderColor: "#33c8a3"
     });
     
-    var treeView = Ti.UI.createView({
+    var treeView = Ti.UI.createScrollView({
         top: 20,
-        bottom: 40,
+        bottom: 140,
         layout: "vertical",
     });
     view.add(treeView);
     view.myContent = treeView;
     
     var buttonBar = Ti.UI.createView({
-        height: 80,
+        height: 130,
         layout: "horizontal",
         bottom: 0,
     });
@@ -26,6 +26,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     add.addEventListener("click", function() {
         var item = app.items[app.selected];
@@ -40,11 +43,38 @@ exports.create = function() {
     });
     buttonBar.add(add);
     
+    var insert = Ti.UI.createButton({
+        title: "Insert",
+        top: 10,
+        height: 30,
+        left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
+    });
+    insert.addEventListener("click", function() {
+        var item = app.items[app.selected];
+        var parent = app.parents[app.selected];
+        var id = "_v" + app.nextId++;
+        for (var i=0;i<parent.children.length;i++) {
+            if (parent.children[i] == item) {
+                parent.children.splice(i, 0, {id: id});
+                break;
+            }
+        }
+        app.update();
+        props.update();
+    });
+    buttonBar.add(insert);
+    
     var remove = Ti.UI.createButton({
         title: "Remove",
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     remove.addEventListener("click", function() {
         var item = app.items[app.selected];
@@ -61,6 +91,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     dup.addEventListener("click", function() {
         var item = app.items[app.selected];
@@ -76,6 +109,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     exportBtn.addEventListener("click", function() {
         var expertWin = require("export").create();
@@ -88,6 +124,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     save.addEventListener("click", function() {
         Ti.App.Properties.setString("mydata", JSON.stringify(app.data));
@@ -99,6 +138,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     load.addEventListener("click", function() {
         var data = JSON.parse(Ti.App.Properties.getString("mydata"));
@@ -115,6 +157,9 @@ exports.create = function() {
         top: 10,
         height: 30,
         left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
     });
     clear.addEventListener("click", function() {
         app.data = {

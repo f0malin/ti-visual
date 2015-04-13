@@ -113,7 +113,7 @@ app.genTree = function(data) {
         left: 20,
         layout: "vertical",
     });
-    view.add(Ti.UI.createLabel({text: type+": "+id, left: 0}));
+    view.add(Ti.UI.createLabel({text: type+": "+id, left: 0, top: 2}));
     if (app.selected == id) {
         console.log("id equal " + id);
         view.children[0].setBorderWidth(1);
