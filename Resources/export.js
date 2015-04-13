@@ -38,6 +38,10 @@ exports.create = function() {
     var close = Ti.UI.createButton({
         title: "Close",
         bottom: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
+        height: 30,
     });
     close.addEventListener("click", function() {
         win.close();

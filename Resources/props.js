@@ -38,6 +38,10 @@ exports.create = function() {
     var submit = Ti.UI.createButton({
         title: "Submit",
         top: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
+        height: 30,
     });
     submit.addEventListener("click", function() {
         var item = app.items[app.selected];
