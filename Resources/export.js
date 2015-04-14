@@ -6,6 +6,10 @@ function genCode(data) {
     args.id = undefined;
     args.type = undefined;
     args.children = undefined;
+    if (args.fontSize) {
+        args.font = {fontSize: args.fontSize};
+        args.fontSize = undefined;
+    }
     var code = 'var ' + id + " = Ti.UI.create" + type.substr(0,1).toUpperCase() + type.substr(1) + "("+JSON.stringify(args)+");\n";
     if (children) {
         for (var i=0;i<children.length;i++) {
