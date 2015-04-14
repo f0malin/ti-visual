@@ -104,7 +104,7 @@ exports.create = function() {
     });
     buttonBar.add(dup);
     
-    var exportBtn = Ti.UI.createButton({
+    var generate = Ti.UI.createButton({
         title: "Generate Code",
         top: 10,
         height: 30,
@@ -113,11 +113,11 @@ exports.create = function() {
         backgroundColor: "#33c8a3",
         color: "white",
     });
-    exportBtn.addEventListener("click", function() {
-        var expertWin = require("export").create();
-        expertWin.open();
+    generate.addEventListener("click", function() {
+        var generateWin = require("generate").create();
+        generateWin.open();
     });
-    buttonBar.add(exportBtn);
+    buttonBar.add(generate);
     
     var save = Ti.UI.createButton({
         title: "Save",
@@ -151,6 +151,36 @@ exports.create = function() {
         props.update();
     });
     buttonBar.add(load);
+    
+    var exportBtn = Ti.UI.createButton({
+        title: "Export",
+        top: 10,
+        height: 30,
+        left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
+    });
+    exportBtn.addEventListener("click", function() {
+        var expertWin = require("export").create();
+        expertWin.open();
+    });
+    buttonBar.add(exportBtn);
+    
+    var importBtn = Ti.UI.createButton({
+        title: "Import",
+        top: 10,
+        height: 30,
+        left: 20,
+        width: 80,
+        backgroundColor: "#33c8a3",
+        color: "white",
+    });
+    importBtn.addEventListener("click", function() {
+        var importWin = require("import").create();
+        importWin.open();
+    });
+    buttonBar.add(importBtn);
     
     var clear = Ti.UI.createButton({
         title: "Clear",

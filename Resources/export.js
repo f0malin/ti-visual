@@ -30,8 +30,8 @@ exports.create = function() {
     });
     
     var label = Ti.UI.createTextArea({
-        //value: JSON.stringify(app.data, null, 4),
-        value: genCode(app.data),
+        value: JSON.stringify(app.data, null, 4),
+        //value: genCode(app.data),
         top: 20,
         bottom: 60,
         left: 20,
