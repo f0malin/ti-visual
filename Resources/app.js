@@ -83,7 +83,13 @@ app.genView = function(data) {
     }
     var string = 'Ti.UI.create' + type.substr(0,1).toUpperCase() + type.substr(1) + "("+JSON.stringify(args)+");";
     console.log(string);
-    var view = eval(string);
+    var view;
+    try {
+        view = eval(string);
+    } catch(err) {
+        data.type = "view";
+        view = Ti.UI.createView(args);
+    }
     
     if (app.selected == id) {
         view.setBorderWidth(1);

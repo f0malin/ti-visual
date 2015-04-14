@@ -54,6 +54,7 @@ exports.create = function() {
             }   
         }
         app.update();
+        view.update();
     });
     view.add(submit);
     
